@@ -1,0 +1,18 @@
+<mat-tab-group mat-stretch-tabs="true">
+    <mat-tab label="Home">
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>QR Code Preview</mat-card-title>
+              <mat-card-subtitle>Your custom generated QR code</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <qrcode #parent [elementType]="elementType" [qrdata]="'Your data string'" [width]="256" [errorCorrectionLevel]="'M'" (qrCodeURL)="onChangeURL($event)"></qrcode>
+            </mat-card-content>
+            <mat-card-footer>
+                  <button style="margin: 16px 0;" mat-raised-button color="accent" (click)="saveAsImage(parent)">Download QR Code Image</button>
+            </mat-card-footer>
+          </mat-card>
+    </mat-tab>
+    <mat-tab label="QR generator">Content 2</mat-tab>
+    <mat-tab label="QR Scanner">Content 3</mat-tab>
+</mat-tab-group>
